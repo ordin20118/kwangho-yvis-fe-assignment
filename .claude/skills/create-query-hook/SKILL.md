@@ -35,7 +35,7 @@ export function usePostsInfinite() {
   return useInfiniteQuery({
     queryKey: postKeys.lists(),
     queryFn: ({ pageParam }) =>
-      fetch(`/api/posts?cursor=${pageParam}&limit=5`).then(res => res.json()),
+      fetch(`/api/posts?cursor=${pageParam}&limit=5`).then((res) => res.json()),
     initialPageParam: '',
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
   });
@@ -53,7 +53,9 @@ export function useLikePost() {
 
   return useMutation({
     mutationFn: (postId: string) =>
-      fetch(`/api/posts/${postId}/like`, { method: 'PATCH' }).then(res => res.json()),
+      fetch(`/api/posts/${postId}/like`, { method: 'PATCH' }).then((res) =>
+        res.json(),
+      ),
     onMutate: async (postId) => {
       await queryClient.cancelQueries({ queryKey: postKeys.lists() });
       const previous = queryClient.getQueryData(postKeys.lists());
