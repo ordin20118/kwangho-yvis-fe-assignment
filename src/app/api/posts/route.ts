@@ -3,15 +3,22 @@ import { posts } from '@/app/api/_data/posts';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const page = Number(searchParams.get('page')) || 1;
-  const limit = Number(searchParams.get('limit')) || 10;
+  const pageParam = searchParams.get('page');
+  const limitParam = searchParams.get('limit');
+  const page = pageParam !== null ? Number(pageParam) : 1;
+  const limit = limitParam !== null ? Number(limitParam) : 10;
 
-  if (page < 1 || limit < 1) {
+  if (
+    !Number.isInteger(page) ||
+    !Number.isInteger(limit) ||
+    page < 1 ||
+    limit < 1
+  ) {
     return NextResponse.json(
       {
         success: false,
         data: [],
-        error: 'page와 limit은 1 이상이어야 합니다.',
+        error: 'page와 limit은 1 이상의 정수여야 합니다.',
       },
       { status: 400 },
     );
