@@ -1,20 +1,9 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
-  title: 'Instagram Feed',
+  title: 'Feed',
   description: '인스타그램 스타일 포스트 피드 애플리케이션',
 };
 
@@ -24,11 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-white">
+    <html lang="ko" className="h-full antialiased">
+      <body className="min-h-full flex flex-col bg-white text-gray-900">
         <Providers>{children}</Providers>
       </body>
     </html>
