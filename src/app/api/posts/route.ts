@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { posts } from '@/app/api/_data/posts';
 
+const MOCK_DELAY_MS = 700;
+
 export async function GET(request: NextRequest) {
+  // 로딩 보여주기 위해 고정 딜레이 추가
+  await new Promise((resolve) => setTimeout(resolve, MOCK_DELAY_MS));
   const { searchParams } = new URL(request.url);
   const pageParam = searchParams.get('page');
   const limitParam = searchParams.get('limit');
