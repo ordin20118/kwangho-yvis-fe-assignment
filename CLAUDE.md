@@ -11,17 +11,17 @@ Instagram 스타일 포스트 피드 애플리케이션 (연봉인상 개발자 
 
 ## 기술 스택
 
-| 카테고리 | 기술 | 버전 |
-|---------|------|------|
-| 프레임워크 | Next.js (App Router) | 15.x |
-| 언어 | TypeScript | 5.x |
-| 서버 상태 관리 | TanStack Query (React Query) | 5.x |
-| 클라이언트 상태 관리 | Zustand | 5.x |
-| 스타일링 | Tailwind CSS | 4.x |
-| 아이콘 | Lucide React | latest |
-| 린팅 | ESLint | 9.x (flat config) |
-| 포맷팅 | Prettier | 3.x |
-| 패키지 매니저 | pnpm | latest |
+| 카테고리             | 기술                         | 버전              |
+| -------------------- | ---------------------------- | ----------------- |
+| 프레임워크           | Next.js (App Router)         | 15.x              |
+| 언어                 | TypeScript                   | 5.x               |
+| 서버 상태 관리       | TanStack Query (React Query) | 5.x               |
+| 클라이언트 상태 관리 | Zustand                      | 5.x               |
+| 스타일링             | Tailwind CSS                 | 4.x               |
+| 아이콘               | Lucide React                 | latest            |
+| 린팅                 | ESLint                       | 9.x (flat config) |
+| 포맷팅               | Prettier                     | 3.x               |
+| 패키지 매니저        | pnpm                         | latest            |
 
 ## 아키텍처: Feature-Sliced Design (FSD)
 
