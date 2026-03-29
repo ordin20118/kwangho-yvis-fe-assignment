@@ -1,6 +1,7 @@
 'use client'
 
 import { usePostsInfinite, PostCard } from "@/entities/post";
+import { useLikePost } from "@/features/like-post";
 import { useIntersectionObserver } from "@/shared/lib";
 import { Spinner } from "@/shared/ui";
 
@@ -13,7 +14,9 @@ export function PostFeed() {
         isLoading,
         isError,
     } = usePostsInfinite();
-    
+
+    const { toggleLike } = useLikePost();
+
     const loadMoreRef = useIntersectionObserver({
         onIntersect: fetchNextPage,
         enabled: hasNextPage && !isFetchingNextPage,
@@ -51,7 +54,7 @@ export function PostFeed() {
     return (
         <div className="flex flex-col">
           {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <PostCard key={post.id} post={post} onLikeToggle={() => toggleLike(post.id)} />
           ))}
     
           {/* 무한 스크롤 트리거 */}
